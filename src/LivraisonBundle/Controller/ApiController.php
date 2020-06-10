@@ -174,7 +174,7 @@ class ApiController extends Controller
     return $response;
     }
 
-    public function deleteRecAction(reclamation $livraison, Request $request)
+    public function deleteRecAction(reclamations $livraison, Request $request)
     {
         $id = $livraison->getId();
         $em = $this->getDoctrine()->getManager();
@@ -199,7 +199,7 @@ class ApiController extends Controller
         $livr = $request->get('livraisonId');
         $livraison = $em->getRepository('LivraisonBundle:Livraison')->find($livr);
         $agent = $em->getRepository('LivraisonBundle:User')->find($ag);
-        $reclamation = new reclamation();
+        $reclamation = new reclamations();
         $reclamation->setTitre($titre);
         $reclamation->setSujet($sujet);
         $reclamation->setLivraison($livraison);
